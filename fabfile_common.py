@@ -1,6 +1,7 @@
 from bount.precompilers import LessPrecompiler, CoffeePrecompiler
 from bount.stacks import *
-from bount.stacks.dalk import DalkStack
+from bount.stacks.goethe import GoetheStack
+from path import path
 
 __author__ = 'mturilin'
 
@@ -11,10 +12,10 @@ precompilers = [
     CoffeePrecompiler('less', 'compiled/css-compiled'),
     ]
 
-stack = DalkStack.build_stack(
-    settings_module='settings_production',
+stack = GoetheStack.build_stack(
+    settings_module='settings',
     dependencies_path=PROJECT_ROOT.joinpath('requirements.txt'),
-    project_name='getccna',
+    project_name='neji',
     source_root=PROJECT_ROOT.joinpath('src'),
     precompilers=precompilers)
 

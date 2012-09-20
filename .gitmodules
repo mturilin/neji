@@ -4,6 +4,3 @@
 [submodule "submodules/ace"]
 	path = submodules/ace
 	url = https://github.com/ajaxorg/ace.git
-[submodule "submodules/ace-builds"]
-	path = submodules/ace-builds
-	url = https://github.com/ajaxorg/ace-builds.git

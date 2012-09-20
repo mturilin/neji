@@ -1,0 +1,13 @@
+tornado
+gunicorn
+Django==1.4.1
+Fabric==1.4.3
+South==0.7.6
+axel==0.0.3
+bottle==0.10.11
+gunicorn==0.14.6
+path.py==2.4
+pycrypto==2.6
+ssh==1.7.14
+tornado==2.4
+wsgiref==0.1.2
