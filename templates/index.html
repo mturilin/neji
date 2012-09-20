@@ -3,10 +3,77 @@
 <html>
 <head>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/neji.css' %}">
+
 </head>
 
-
 <body>
-    <h1>Hello world!</h1>
+<input type="hidden" id="ws_url" value="{{ ws_url }}">
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/">Neji</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="">
+                        <a href="/about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row lead-header">
+        <div class="span12">
+            {#            <img class="logo" src="{% static 'img/neji.jpg' %}" alt="">#}
+            <h1>Neji</h1>
+
+            <p class="lead">Python Online Classroom. Code together with your friends or your Python instructor.</p>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="span12">
+            <h2>Python code</h2>
+
+            <div id="editor">{{ code }}</div>
+        </div>
+    </div>
+    <div class="row buttons_row">
+        <div class="span12">
+            <a id="run_button" class="btn">Run</a>
+            {% if session_id %}
+                <input type="hidden" id="session_id" value="{{ session_id }}">
+                <div id="socket_status" class="alert-inline alert">
+                    Disconneted from the server...
+                </div>
+            {% else %}
+                <a id="new_button" class="btn">
+                    Save new session
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <h2>Result</h2>
+            <pre id="python_result" class="prettyprint linenums">Click "Run" to execute code...</pre>
+        </div>
+    </div>
+
+</div>
+
+<script data-main="{% static 'js/main.js' %}" src="{% static 'js/require-jquery.js' %}" type="text/javascript"
+        charset="utf-8"></script>
+
 </body>
+
 </html>

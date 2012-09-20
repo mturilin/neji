@@ -1,2 +1,5 @@
 site/
 .idea/
+.DS_Store
+compiled/
+*.pyc
