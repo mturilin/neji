@@ -8,8 +8,8 @@ __author__ = 'mturilin'
 PROJECT_ROOT = path(__file__).dirname()
 
 precompilers = [
-    LessPrecompiler('less', 'compiled/css-compiled'),
-    CoffeePrecompiler('less', 'compiled/css-compiled'),
+    LessPrecompiler('less', 'compiled/css'),
+    CoffeePrecompiler('less', 'compiled/js'),
     ]
 
 stack = GoetheStack.build_stack(
