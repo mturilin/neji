@@ -96,11 +96,11 @@ require(
             });
 
 
-            var session_mode = $("#session_id");
+            var session_mode = $("#session_id").length;
 
             var session_id = null;
             if (session_mode) {
-                session_id = session_mode.val();
+                session_id = $("#session_id").val();
             }
 
 
