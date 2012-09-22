@@ -1,6 +1,7 @@
 import django
 from django.utils import simplejson
 from django.core.handlers.wsgi import WSGIHandler
+import sys
 from tornado import websocket
 from tornado import web, ioloop, httpserver, wsgi
 from neji.models import CodeSession
@@ -124,6 +125,10 @@ application = web.Application([
 ])
 
 if __name__ == "__main__":
+    port = 8888
+    if len(sys.argv) > 1 and sys.argv[1].isdigit():
+        port = int(sys.argv[1])
+
     http_server = httpserver.HTTPServer(application)
-    http_server.listen(8888)
+    http_server.listen(port)
     ioloop.IOLoop.instance().start()

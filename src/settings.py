@@ -1,6 +1,8 @@
 # Django settings for src project.
 import socket
+import os
 from path import path
+import sys
 
 PROJECT_ROOT = path(__file__).dirname().dirname()
 SITE_ROOT = PROJECT_ROOT.joinpath('site')
@@ -187,6 +189,9 @@ LOGGING = {
     }
 }
 
-WS_IP = "192.168.1.7"
-WS_PORT = '8888'
+LOGGING_PATH = SITE_ROOT.joinpath("logs")
+
+WS_IP = os.environ['WEBSOCKET_HOST']
+WS_PORT = os.environ['WEBSOCKET_PORT']
 WS_URL = "ws://" + WS_IP + ":" + WS_PORT +"/ws"
+

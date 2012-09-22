@@ -11,11 +11,6 @@ require(
     function ($, ace, theme, mode_python, range) {
         "use strict";
 
-        //This function is called when scripts/helper/util.js is loaded.
-        //If util.js calls define(), then this function is not fired until
-        //util's dependencies have loaded, and the util argument will hold
-        //the module value for "helper/util".
-
 
         $(function () {
             var editor = ace.edit("editor");
@@ -115,24 +110,8 @@ require(
                         window.location = data;
                     });
             });
-//            we don't need this any more since we are saving all changes in the Tornado thru socket
-//            $("#save_button").click(function () {
-//                "use strict";
-//                var python_code = editor.getValue();
-//                $.post(
-//                    "/save",
-//                    {
-//                        python_code:python_code,
-//                        session_id:session_id
-//                    },
-//                    function (data) {
-//                        "use strict";
-//                        alert(data);
-//                    });
-//            });
 
             // WebSocket init
-
             var ws_url = function () {
                 return $("#ws_url").val();
             };
