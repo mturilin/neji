@@ -38,6 +38,8 @@ def build_stack():
 
     stack.services.append(tornado)
 
+    return stack
+
 
 bount.stacks.stack_builder = build_stack
 

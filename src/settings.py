@@ -191,7 +191,7 @@ LOGGING = {
 
 LOGGING_PATH = SITE_ROOT.joinpath("logs")
 
-WS_IP = os.environ['WEBSOCKET_HOST']
-WS_PORT = os.environ['WEBSOCKET_PORT']
+WS_IP = os.environ.get('WEBSOCKET_HOST',"localhost")
+WS_PORT = os.environ.get('WEBSOCKET_PORT', "8888")
 WS_URL = "ws://" + WS_IP + ":" + WS_PORT +"/ws"
 
