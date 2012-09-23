@@ -1,43 +1,8 @@
-<!DOCTYPE HTML>
+{% extends "main.html" %}
 {% load staticfiles %}
-<html>
-<head>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/neji.css' %}">
 
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=416032571789365";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 
-</head>
-
-<body>
-<input type="hidden" id="ws_url" value="{{ ws_url }}">
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="/">Neji</a>
-
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="">
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="">
-                        <a href="/about.html">About</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+{% block main_content %}
 <div class="container">
     <div class="row lead-header">
         <div class="span12">
@@ -91,6 +56,4 @@
 <script data-main="{% static 'js/main.js' %}" src="{% static 'js/require-jquery.js' %}" type="text/javascript"
         charset="utf-8"></script>
 
-</body>
-
-</html>
+{% endblock %}

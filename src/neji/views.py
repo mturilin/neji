@@ -8,6 +8,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import simplejson
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.generic import TemplateView
 from neji.models import CodeSession
 from django.conf import settings
 
@@ -110,6 +111,4 @@ def code_session_page(request, session_id):
         {"code": code_session.code,
          "session_id": session_id,
          "ws_url": settings.WS_URL})
-
-
 

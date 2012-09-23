@@ -235,9 +235,11 @@ require(
                 content: "Use this link to invite your friend to edit exactly the same code that you see in your editor",
                 trigger: "hover",
                 placement: "bottom"
-            });
+            }).popover("show");
 
-            $('#share_link').popover("show");
+            setTimeout(function() {
+                $('#share_link').popover('hide');
+            }, 2000)
 
         });
 
