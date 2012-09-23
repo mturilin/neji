@@ -114,7 +114,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
-    "django.core.context_processors.csrf")
+    "django.core.context_processors.csrf",
+    "neji.utils.current_url")
 
 ROOT_URLCONF = 'urls'
 

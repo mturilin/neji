@@ -6,9 +6,19 @@
  * To change this template use File | Settings | File Templates.
  */
 
+require.config({
+    paths: {
+        bootstrap: 'bootstrap.min'
+    },
+    shim: {
+        'bootstrap': ['jquery']
+    }
+});
+
+
 require(
-    ["jquery", "ace/ace", "ace/theme/tomorrow_night", "ace/mode/python", "ace/range"],
-    function ($, ace, theme, mode_python, range) {
+    ["jquery", "ace/ace", "ace/theme/tomorrow_night", "ace/mode/python", "ace/range","bootstrap"],
+    function ($, ace, theme, mode_python, range, bootstrap) {
         "use strict";
 
 
@@ -219,6 +229,16 @@ require(
             if (session_mode) {
                 start_web_socket();
             }
+
+            $('#share_link').popover({
+                title: "Sharing link",
+                content: "Use this link to invite your friend to edit exactly the same code that you see in your editor",
+                trigger: "hover",
+                placement: "bottom"
+            });
+
+            $('#share_link').popover("show");
+
         });
 
     });

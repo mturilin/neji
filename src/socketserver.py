@@ -1,11 +1,8 @@
-import django
 from django.utils import simplejson
-from django.core.handlers.wsgi import WSGIHandler
 import sys
 from tornado import websocket
-from tornado import web, ioloop, httpserver, wsgi
+from tornado import web, ioloop, httpserver
 from neji.models import CodeSession
-from wsgi import application as django_wsgi_app
 
 __author__ = 'mturilin'
 

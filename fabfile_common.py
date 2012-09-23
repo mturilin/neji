@@ -1,5 +1,5 @@
 import bount
-from bount.managers.tornado import TornadoManager, TornadoNginxManager
+from bount.managers.tornado import TornadoManager
 from bount.precompilers import LessPrecompiler, CoffeePrecompiler
 from bount.stacks.goethe import GoetheStack
 from fabric.state import env
@@ -8,7 +8,7 @@ from bount.stacks import *
 
 __author__ = 'mturilin'
 
-WEBSOCKET_PORT = 81
+WEBSOCKET_PORT = 8888
 PROJECT_ROOT = path(__file__).dirname()
 
 def build_stack():
@@ -30,8 +30,8 @@ def build_stack():
         })
 
 
-    tornado = TornadoNginxManager("socketserver.py", "neji_tornado", "ubuntu", '', 1, 8888, stack.python.virtualenv_path(),
-        stack.django.src_root, stack.django.log_path, stack.django.remote_site_path, nginx=stack.webserver, nginx_port=WEBSOCKET_PORT,
+    tornado = TornadoManager("socketserver.py", "neji_tornado", "ubuntu", '', 1, WEBSOCKET_PORT, stack.python.virtualenv_path(),
+        stack.django.src_root, stack.django.log_path, stack.django.remote_site_path,
         environment={
             "DJANGO_SETTINGS_MODULE": "settings",
         })
