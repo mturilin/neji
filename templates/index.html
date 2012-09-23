@@ -6,7 +6,8 @@
 <div class="container">
     <div class="row lead-header">
         <div class="span12">
-            {#            <img class="logo" src="{% static 'img/neji.jpg' %}" alt="">#}
+            <div class="fb-like" data-href="http://pythonschool.info" data-send="{% if session_id %}false{% else %}true{% endif %}"
+                 data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
             <h1>Neji</h1>
 
             <p class="lead">Python Online Classroom. Code together with your friends or your Python instructor.</p>
