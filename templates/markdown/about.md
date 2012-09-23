@@ -15,6 +15,13 @@ At the client side I use Twitter Bootstrap framework and [Ace code editor](http:
 I used [Bount](https://github.com/mturilin/bount) cloud deployment system to create execution environment for the
 production server.
 
+## Limitations
+
+Neji doesn't support python "import" statement because it would effectively give a guest access to the server to anybody.
+I'm currently evaluating several options how to allow import packages without a risk of crushing the server.
+
+Also, I'm looking for solution how to detect and kill long or infitite tasks.
+
 ## Future plans
 
 I have quite a few future plans about it.
@@ -22,14 +29,14 @@ I have quite a few future plans about it.
 Some of the ideas how improve Neji as standalone project:
 
 - Add cloud login system using [Akamaru](https://github.com/mturilin/akamaru) (drop-in social authentication system for Django)
-- Make Neji as a Facebook application allowing to code together right on the Facebook web site
+- Make Neji a Facebook application enabling cooperative coding right on the Facebook web site
 - Create a collaborative coding environment for the more serious projects
 
 Also, Neji could be integrated to a bigger learning platform:
 
 - Integrate with some free learning service, like Khan academy
 - Integrate with open source learning management system like, [Moodle](http://moodle.org) or [Class2Go](http://class2go.stanford.edu)
-- Integrate in commercial learning system
+- Integrate into a commercial learning system, like my own [GetCCNA](http://getccna.ru) (the web site is in Russian)
 
 
 ## About Neji character
