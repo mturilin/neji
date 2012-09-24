@@ -54,7 +54,7 @@ My name is Mikhail Turilin, I'm a developer and product manager living in San Fr
 professional resume is available here:
 [View PDF](http://f.cl.ly/items/421n3o2q1i3g0x3c132v/Mikhail%20Turilin%20-%20Product%20Manager%20Resume%202012.pdf)
 
-My GitHub home is here: [github/mturilin](http://github/mturilin)
+My GitHub home is here: [github.com/mturilin](http://github.com/mturilin)
 
 You can contact me by [mturilin@gmail.com](mailto:mturilin@gmail.com) or Twitter [@mturilin](http://twitter.com/mturilin).
 

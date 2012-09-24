@@ -54,7 +54,7 @@ ALLOWED_PACKAGES = [
 
 def validate_python_code(python_code):
     import_errors = []
-    REXP = "([import|from]\\s+(\\w+))\\W"
+    REXP = "([import|from]\\s+(\\w+))\\W?"
     for match in re.finditer(REXP, python_code):
         module_name = match.group(2)
         if module_name not in ALLOWED_PACKAGES:
