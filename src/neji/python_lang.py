@@ -45,7 +45,7 @@ FORBIDDEN_KEYWORDS = [
 def check_keyword_errors(code):
     keyword_errors = []
     for keyword in FORBIDDEN_KEYWORDS:
-        if keyword in code:
+        if re.search('\\b%s\\b' % keyword, code):
             keyword_errors.append(
                 'Forbidden keyword "%s". Check Python page for explanation.' % keyword)
 
