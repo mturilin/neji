@@ -2,65 +2,26 @@
 import subprocess
 from threading import Timer
 import uuid
-import django
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils import simplejson
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
-from django.views.generic import TemplateView
-import re
 from neji.models import CodeSession
 from django.conf import settings
 
 import logging
 
 # Get an instance of a logger
+from neji.python_lang import validate_python_code
+
 logger = logging.getLogger(__name__)
 
 @ensure_csrf_cookie
 def index(request):
     return render(request, 'index.html', {"code": "print 'Hello, world!'", "session_id": ""})
 
-
-ALLOWED_PACKAGES = [
-    "string",
-    "re",
-    "struct",
-    "datetime",
-    "numbers",
-    "math",
-    "decimal",
-    "fractions",
-    "random",
-    "itertools",
-    "functool",
-    "operator",
-    "pickle",
-    "cPickle",
-    "zlib",
-    "gzip",
-    "bz2",
-    "zipfile",
-    "csv",
-    "io",
-    "time",
-    "threading",
-    "time",
-    "json",
-]
-
-
-def validate_python_code(python_code):
-    import_errors = []
-    REXP = "([import|from]\\s+(\\w+))\\W?"
-    for match in re.finditer(REXP, python_code):
-        module_name = match.group(2)
-        if module_name not in ALLOWED_PACKAGES:
-            import_errors.append('Import from module "%s" is not allowed. Check Python page for explanation.' % module_name)
-
-    return import_errors
 
 def format_validation_errors(validation_errors):
     text = ''
@@ -89,12 +50,11 @@ def runpython(request):
             "error_message": "Errors:\n%s" % formatted_errors
         }))
 
-
-
     python_process = subprocess.Popen(["python"], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # Timer
     timer_error = list()
+
     def check_and_kill():
         print "Before polling"
         process_poll = python_process.poll()
