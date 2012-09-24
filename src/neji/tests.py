@@ -67,7 +67,38 @@ import \\
 print os.listdir("/")
 """
 
-        self.assertEquals(['Import from module "os" is not allowed. Check Python page for explanation.'],
+        self.assertListEqual(['Import from module "os" is not allowed. Check Python page for explanation.'],
             validate_python_code(python_code))
+
+
+    def test_validate_keywords(self):
+        python_code = """
+print 'Hello, world!'
+
+execfile("mkkmk.py")
+
+eval("bla bla bla")
+
+print os.listdir("/")
+"""
+
+        self.assertSetEqual({'Forbidden keyword "execfile". Check Python page for explanation.',
+                           'Forbidden keyword "eval". Check Python page for explanation.'},
+            set(validate_python_code(python_code)))
+
+    def test_validate_ignore_comments_and_strings(self):
+        python_code = """
+print 'import os'
+print 'execfile(mkmkmm)'
+
+#execfile("mkkmk.py")
+
+#eval("bla bla bla")
+#import os
+
+print os.listdir("/")
+"""
+
+        self.assertEquals([], validate_python_code(python_code))
 
 
