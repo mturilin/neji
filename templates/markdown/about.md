@@ -17,10 +17,12 @@ production server.
 
 ## Limitations
 
-Neji doesn't support python "import" statement because it would effectively give a guest access to the server to anybody.
-I'm currently evaluating several options how to allow import packages without a risk of crushing the server.
+Neji doesn't support python "import" statement for arbitrary packages because it would effectively give a guest access
+to the server to anybody. The list of the allowed packages is on the Python page.
 
-Also, I'm looking for solution how to detect and kill long or infitite tasks.
+Also, I need to protect the server from inifinite tasks. For example, somebody could write an inifinit loop and load
+the server indefinitely. To prevent this, the running time of the each task is limited to 5 seconds. Please, let me know
+if you think this limited should be lifted.
 
 ## Future plans
 

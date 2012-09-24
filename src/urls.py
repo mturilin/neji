@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'neji.views.index', name='home'),
     url(r'^about.html$', 'django.views.generic.simple.direct_to_template', {'template': "markdown.html", "extra_context": {"markdown_src": "markdown/about.md"}}),
+    url(r'^python.html$', 'django.views.generic.simple.direct_to_template', {'template': "markdown.html", "extra_context": {"markdown_src": "markdown/python.md"}}),
     url(r'^runpython$', 'neji.views.runpython'),
     url(r'^save', 'neji.views.save'),
     url(r'^new', 'neji.views.new'),
